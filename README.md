@@ -34,7 +34,7 @@ Input parameters:
 * `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
 
 Output parameters:
-* `model`: a list with including the design matrix `X`, the imaging matrix `Y`, the matrix with x-coordinates `Xc`, the matrix with y-coordinates `Yc`and the matrix with z-coordinates `Zc`.
+* `model`: a list including the design matrix `X`, the imaging matrix `Y`, the matrix with x-coordinates `Xc`, the matrix with y-coordinates `Yc`and the matrix with z-coordinates `Zc`.
 
 Notes:
 
