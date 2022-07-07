@@ -29,7 +29,7 @@ model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, indVar, nPoint
 Input parameters:
 * `fileClinicalDataPath`: Set the path of the file containing the clinical data of the subjects for all the models e.g. `"/home/yourname/clinicaldata-path/data/ClinicalData.csv"`.
 * `folderImagingDataPath`: Set the path of the folders storing the image data e.g. `"/home/yourname/folder-path/"`.
-* `indVar`: Define the independent variables of the model e.g. `c("individual_id","Age","Sex","Race_c","BMI","WHR")`.
+* `indVar`: Define the independent variables of the model e.g. `c("individual_id","Age","Sex","Race","BMI","WHR")`.
 * `nPoints`: Set the number of points (vertices) in the mesh, this will change for each organ e.g. for kidney left: `4380`.
 * `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
 
