@@ -131,4 +131,4 @@ Sub-functions for computing the mass univariate regression analysis
 Notes:
 
 * `TFCE.R` function is used from the R package [`mutools3D`](https://github.com/UK-Digital-Heart-Project/mutools3D).
-* `murq.R` and `permFL_fast.R` functions are similar to the functions `mur.R` and `permFL.R` of the `mutools3D` package however, they are enhanced to allow process of big datasets .
+* `murq.R` and `permFL_fast.R` functions are similar to the functions `mur.R` and `permFL.R` of the `mutools3D` package however, they are enhanced to allow process of big datasets.
