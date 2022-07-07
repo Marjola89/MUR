@@ -116,7 +116,7 @@ Sub-functions for computing the mass univariate regression analysis
   result <- murq(X, Y, extract)```
 * `permFL_fast.R` for the permutation the data and applying TFCE.
    ```bash 
-   sign <- permFL_fast(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
+   TFCEresults <- permFL_fast(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
    ```
    Input parameters:
    * `X` is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical varable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).
