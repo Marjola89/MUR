@@ -1,0 +1,5 @@
+Package: MUR
+Type: Package
+Title: Mass Univariate Regression Analysis
+Version: 0.0.1.0
+RoxygenNote: 7.2.0
