@@ -28,11 +28,13 @@ mass_univariate_analysis(
 
 \item{data_range}{is the range of the independent variables to be included in the model e.g. c(1:8).}
 
-\item{extract_range}{is the range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. c(2, 5:8)..}
+\item{extract_range}{is the range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. c(2, 5:8).}
+
+\item{output_dir}{is the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a ```.txt``` file.}
 }
 \description{
 Mass Univariate Analysis.
 }
 \examples{
-mur_analysis <- mass_univariate_analysis(data_dir, phenotype, organ, scale_range, nPermutations, data_range, extract_range)
+mur_analysis <- mass_univariate_analysis(data_dir, phenotype, organ, scale_range, nPermutations, data_range, extract_range, output_dir)
 }

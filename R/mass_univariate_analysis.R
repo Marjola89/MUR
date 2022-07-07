@@ -10,9 +10,10 @@
 #' @param scale_range is the range of the independent variables to be scaled e.g. c(1:10).
 #' @param nPermutations is the number of permutation testing e.g. 1000.
 #' @param data_range is the range of the independent variables to be included in the model e.g. c(1:8).
-#' @param extract_range is the range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. c(2, 5:8)..
+#' @param extract_range is the range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. c(2, 5:8).
+#' @param output_dir is the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a ```.txt``` file.
 #' @export
-#' @examples mur_analysis <- mass_univariate_analysis(data_dir, phenotype, organ, scale_range, nPermutations, data_range, extract_range)
+#' @examples mur_analysis <- mass_univariate_analysis(data_dir, phenotype, organ, scale_range, nPermutations, data_range, extract_range, output_dir)
 
 mass_univariate_analysis <- function(data_dir, phenotype, organ, scale_range, nPermutations, data_range, extract_range, output_dir){
 

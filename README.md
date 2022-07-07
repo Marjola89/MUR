@@ -15,7 +15,7 @@ library(devtools)
 Then, to install the package just use `install_github`function.
 
 ```r
-install_github("MUR", build_vignettes = TRUE)
+install_github("Marjola89/MUR")
 ```
 
 ## Code
