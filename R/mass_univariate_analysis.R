@@ -57,46 +57,45 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
     # Run the 3D Mass univariate regression analysis
     print(extract_range)
 
-    for (iEx in extract_range)
-    {
+    for (iEx in extract_range){
 
-      start.time <- Sys.time()
-      extract <- iEx
-      print(extract)
-      result <- murq(X, Y, extract)
+        start.time <- Sys.time()
+        extract <- iEx
+        print(extract)
+        result <- murq(X, Y, extract)
 
-      # MULTIPLE TESTING CORRECTION
-      corrected <- mt.rawp2adjp(result[, 3], proc = c("BH"), na.rm = FALSE)
-      pvalueADJ5tsbh <- array(dim = length(result[, 3]))
-      BHpvalues <- corrected$adjp[order(corrected$index),][, 2]
+        # MULTIPLE TESTING CORRECTION
+        corrected <- mt.rawp2adjp(result[, 3], proc = c("BH"), na.rm = FALSE)
+        pvalueADJ5tsbh <- array(dim = length(result[, 3]))
+        BHpvalues <- corrected$adjp[order(corrected$index),][, 2]
 
 
-      meshCoordinates <- cbind(mesh_Coordinates,99999)
-      # PRINT OUTPUT
-      meshCoordinates[, 4] <- result[,  1]
-      write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_beta_", phenotype, "_", organ, ".txt",sep = ""), col.names = FALSE, row.names = FALSE)
-      meshCoordinates[, 4] <- result[, 3]
-      write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_pvalues_", phenotype, "_", organ, ".txt",sep = ""), col.names = FALSE, row.names = FALSE)
-      meshCoordinates[, 4] <- BHpvalues
-      write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_BHpvalues_", phenotype, "_", organ, ".txt",sep = ""), col.names = FALSE, row.names = FALSE)
+        meshCoordinates <- cbind(mesh_Coordinates,99999)
+        # PRINT OUTPUT
+        meshCoordinates[, 4] <- result[,  1]
+        write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_beta_", phenotype, "_", organ, ".txt",sep = ""), col.names = FALSE, row.names = FALSE)
+        meshCoordinates[, 4] <- result[, 3]
+        write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_pvalues_", phenotype, "_", organ, ".txt",sep = ""), col.names = FALSE, row.names = FALSE)
+        meshCoordinates[, 4] <- BHpvalues
+        write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_BHpvalues_", phenotype, "_", organ, ".txt",sep = ""), col.names = FALSE, row.names = FALSE)
 
-      signif <- permFL_fast(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
-      sign <- signif$pvalues # get p-values
+        signif <- permFL_fast(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
+        sign <- signif$pvalues # get p-values
 
-      # MULTIPLE TESTING CORRECTION
-      pfdr5TSBH <- mt.rawp2adjp(sign[, 1], proc=c("BH"), na.rm = FALSE)
-      pvalueADJ5tsbh <- array(dim = length(sign[, 1]))
-      BHpvaluesTFCE <- pfdr5TSBH$adjp[order(pfdr5TSBH$index),][, 2]
+        # MULTIPLE TESTING CORRECTION
+        pfdr5TSBH <- mt.rawp2adjp(sign[, 1], proc=c("BH"), na.rm = FALSE)
+        pvalueADJ5tsbh <- array(dim = length(sign[, 1]))
+        BHpvaluesTFCE <- pfdr5TSBH$adjp[order(pfdr5TSBH$index),][, 2]
 
-      # PRINT OUTPUT
-      meshCoordinates[, 4] <- sign[, 1]
-      write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_pvaluesTFCE_", phenotype, "_", organ, ".txt", sep=""), col.names = FALSE, row.names = FALSE)
-      meshCoordinates[, 4] <- BHpvaluesTFCE
-      write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_BHpvaluesTFCE_", phenotype, "_", organ, ".txt", sep=""), col.names = FALSE, row.names = FALSE)
+        # PRINT OUTPUT
+        meshCoordinates[, 4] <- sign[, 1]
+        write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_pvaluesTFCE_", phenotype, "_", organ, ".txt", sep=""), col.names = FALSE, row.names = FALSE)
+        meshCoordinates[, 4] <- BHpvaluesTFCE
+        write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_BHpvaluesTFCE_", phenotype, "_", organ, ".txt", sep=""), col.names = FALSE, row.names = FALSE)
 
-      end.time <- Sys.time()
-      time.taken<-end.time - start.time
-      print(time.taken)
+        end.time <- Sys.time()
+        time.taken<-end.time - start.time
+        print(time.taken)
 
     }
 }
