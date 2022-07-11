@@ -4,10 +4,10 @@
 \alias{create_nnlist_area}
 \title{Compute NN list and voronoi area.}
 \usage{
-create_nnlist_area(data_dir, organ, dpl)
+create_nnlist_area(mesh_Coordinates, organ, dpl)
 }
 \arguments{
-\item{data_dir}{is the path of the data directory were the matrices X and Y for the model are saved.}
+\item{mesh_Coordinates}{is the matrix from the 3D model mesh of the template.}
 
 \item{organ}{is the organ segmentation e.g. liver, spleen, kidney_left etc.}
 
@@ -20,5 +20,5 @@ ndy: The y-dimension of the aforementioned rectangular grid.}
 Compute NN list and voronoi area.
 }
 \examples{
-NN_Area <- create_nnlist_area(data_dir, organ, dpl)
+NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)
 }

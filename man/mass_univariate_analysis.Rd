@@ -5,20 +5,29 @@
 \title{Mass Univariate Analysis.}
 \usage{
 mass_univariate_analysis(
-  data_dir,
+  inputClinical,
+  Y,
+  A,
+  NNmatrix,
+  mesh_Coordinates,
   phenotype,
   organ,
   scale_range,
   nPermutations,
-  data_range,
   extract_range,
   output_dir
 )
 }
 \arguments{
-\item{data_dir}{is the path of the data directory were the matrices X and Y for the model are saved.}
+\item{Y}{is the imaging matrix. Number of rows = N. Number of columns = V.}
 
-\item{phenotype}{is the imaging phenotype e.g. 1 for S2S, 2 for Curvature.}
+\item{A}{A V-dimensional vector containing the area associated with a vertex, usually its Voronoi area.}
+
+\item{NNmatrix}{Nx2 matrix containing the mesh edges. Important: to speed up the execution please avoid repetitions like (A,B) and (B,A).}
+
+\item{mesh_Coordinates}{is the matrix from the 3D model mesh of the template.}
+
+\item{phenotype}{is the imaging phenotype e.g. 1 for `S2S`, 2 for `Curvature`.}
 
 \item{organ}{is the organ segmentation e.g. liver, spleen, kidney_left etc.}
 
@@ -26,15 +35,15 @@ mass_univariate_analysis(
 
 \item{nPermutations}{is the number of permutation testing e.g. 1000.}
 
-\item{data_range}{is the range of the independent variables to be included in the model e.g. c(1:8).}
-
 \item{extract_range}{is the range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. c(2, 5:8).}
 
 \item{output_dir}{is the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a ```.txt``` file.}
+
+\item{X}{is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical varable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).}
 }
 \description{
 Mass Univariate Analysis.
 }
 \examples{
-mur_analysis <- mass_univariate_analysis(data_dir, phenotype, organ, scale_range, nPermutations, data_range, extract_range, output_dir)
+mur_analysis <- mass_univariate_analysis(inputClinical, Y, A, NNmatrix, mesh_Coordinates, phenotype, organ, scale_range, nPermutations, extract_range, output_dir)
 }
