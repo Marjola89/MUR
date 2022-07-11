@@ -7,7 +7,7 @@
 loadingdata(
   fileClinicalDataPath,
   folderImagingDataPath,
-  indVar,
+  phenoType,
   nPoints,
   organ
 )
@@ -17,7 +17,7 @@ loadingdata(
 
 \item{folderImagingDataPath}{is the path of the folders storing the image data e.g. "/home/yourname/folder-path/".}
 
-\item{indVar}{is the independent variables of the model e.g. c("individual_id","Age","Sex","Race_c","BMI","WHR").}
+\item{phenoType}{is the imaging phenotype e.g. "1" for S2S, "2" for Curvature.}
 
 \item{nPoints}{is the number of points (vertices) in the mesh, this will change for each organ e.g. for kidney left: 4380.}
 
@@ -27,5 +27,5 @@ loadingdata(
 Load and prepare data for analysis.
 }
 \examples{
-model <- loadingData(fileClinicalDataPath, folderImagingDataPath, indVar, nPoints, organ)
+model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ)
 }
