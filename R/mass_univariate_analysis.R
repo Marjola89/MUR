@@ -43,7 +43,7 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
     # NCOL = N POINTS ON THE ATLAS
     # NROW = N PATIENTS
     # DATA PRE-PROCESSING
-    Ys <- scale(Y)
+    Y <- scale(Y)
     print(dim(Ys))
 
     # NUMBER OF CORES TO USE
@@ -52,7 +52,7 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
     # set the column names of the organ mesh coordinates
     colnames(mesh_Coordinates) <- c("x", "y", "z")
 
-    extractNames <- colnames(Xn)
+    extractNames <- colnames(X)
 
     # Run the 3D Mass univariate regression analysis
     print(extract_range)
@@ -63,7 +63,7 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
       start.time <- Sys.time()
       extract <- iEx
       print(extract)
-      result <- murq(Xn, Ys, extract)
+      result <- murq(X, Y, extract)
 
       # MULTIPLE TESTING CORRECTION
       corrected <- mt.rawp2adjp(result[, 3], proc = c("BH"), na.rm = FALSE)
@@ -80,7 +80,7 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
       meshCoordinates[, 4] <- BHpvalues
       write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_BHpvalues_", phenotype, "_", organ, ".txt",sep = ""), col.names = FALSE, row.names = FALSE)
 
-      signif <- permFL_fast(Xn, Ys, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
+      signif <- permFL_fast(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
       sign <- signif$pvalues # get p-values
 
       # MULTIPLE TESTING CORRECTION
