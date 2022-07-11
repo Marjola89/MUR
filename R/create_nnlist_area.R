@@ -30,7 +30,8 @@ create_nnlist_area <- function(data_dir, organ, dpl){
 
     # compute the voronoi area of the organ
     z <- deldir(data_mesh, plot = FALSE, dpl = dpl, digits = 2)
-    Area <- z$summary$del.area
+    Area <- z$summary$del.area[1:nrow(mesh_Coordinates)]
+    Area[is.na(Area)] <- 0
 
     NN_Area <- list("NNmatrix" = NNmatrix, "Area" = Area)
     return(NN_Area)
