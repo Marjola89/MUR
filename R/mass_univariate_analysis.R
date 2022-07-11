@@ -79,7 +79,7 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
         meshCoordinates[, 4] <- BHpvalues
         write.table(meshCoordinates, paste(output_dir, extractNames[extract], "_BHpvalues_", phenotype, "_", organ, ".txt",sep = ""), col.names = FALSE, row.names = FALSE)
 
-        signif <- permFL_fast(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
+        signif <- permFL_fast(X, Y, extract, as.matrix(A), as.matrix(NNmatrix), nPermutations, E = 0.5, H = 2)
         sign <- signif$pvalues # get p-values
 
         # MULTIPLE TESTING CORRECTION
