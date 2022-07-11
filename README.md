@@ -93,10 +93,10 @@ mur_analysis <- mass_univariate_analysis(inputClinical, Y, A, NNmatrix, mesh_Coo
 This code is dependent on three functions (`~/function/murq.R`, `~/function/permFL_fast.R` and `~/function/TFCE.R`) which are called within the code.
 
 Input parameters:
-* `X` is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical varable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).
+* `X` is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical variable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).
 * `Y` is the imaging matrix. Number of rows = N. Number of columns = V.
 * `A` a V-dimensional vector containing the area associated with a vertex, usually its Voronoi area.
-* `NNmatrix` Nx2 matrix containing the mesh edges. Important: to speed up the execution please avoid repetitions like (A,B) and (B,A).
+* `NNmatrix` Nx2 matrix containing the mesh edges. 
 * `mesh_Coordinates`: The matrix from the 3D model mesh of the template.
 * `phenotype`: Define the imaging phenotype e.g. `1` for S2S, `2` for Curvature.
 * `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
@@ -120,16 +120,16 @@ Sub-functions for computing the mass univariate regression analysis
    TFCEresults <- permFL_fast(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
    ```
    Input parameters:
-   * `X` is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical varable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).
+   * `X` is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical variable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).
    * `Y` is the imaging matrix. Number of rows = N. Number of columns = V.
    * `extract` is an array expressing which covariates in X you want to extract.
    * `A` a V-dimensional vector containing the area associated with a vertex, usually its Voronoi area.
-   * `NNmatrix` Nx2 matrix containing the mesh edges. Important: to speed up the execution please avoid repetitions like (A,B) and (B,A).
+   * `NNmatrix` Nx2 matrix containing the mesh edges.
    * `nPermutations` number of permutations in the permutation test, default is 1000.
    * `E` is the TFCE parameter, by default fixed to 0.5.
    * `H` is the TFCE parameter, by default fixed to 2.
+  
+  Notes:
 
-Notes:
-
-* `TFCE.R` function is used from the R package [`mutools3D`](https://github.com/UK-Digital-Heart-Project/mutools3D).
-* `murq.R` and `permFL_fast.R` functions are similar to the functions `mur.R` and `permFL.R` of the `mutools3D` package however, they are enhanced to allow process of big datasets.
+   * `TFCE.R` function is used from the R package [`mutools3D`](https://github.com/UK-Digital-Heart-Project/mutools3D).
+   * `murq.R` and `permFL_fast.R` functions are similar to the functions `mur.R` and `permFL.R` of the `mutools3D` package however, they are enhanced to allow process of big datasets.

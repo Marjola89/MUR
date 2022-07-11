@@ -29,10 +29,6 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
     # NROW = N PATIENTS
     head(inputClinical)
 
-    for (iS in scale_range){
-        inputClinical[, iS] <- scale(inputClinical[, iS])
-    }
-
     X <- data.matrix(inputClinical[, -c(1)])
 
     X <- cbind(1, X)
