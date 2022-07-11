@@ -39,7 +39,6 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
     # NCOL = N POINTS ON THE ATLAS
     # NROW = N PATIENTS
     # DATA PRE-PROCESSING
-    Y <- scale(Y)
     print(dim(Y))
 
     # NUMBER OF CORES TO USE
