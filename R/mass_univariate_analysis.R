@@ -44,7 +44,7 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
     # NROW = N PATIENTS
     # DATA PRE-PROCESSING
     Y <- scale(Y)
-    print(dim(Ys))
+    print(dim(Y))
 
     # NUMBER OF CORES TO USE
     # All core detected here
