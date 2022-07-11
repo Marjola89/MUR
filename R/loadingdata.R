@@ -66,7 +66,7 @@ loadingdata <- function(fileClinicalDataPath, folderImagingDataPath, phenoType, 
     }
   }
 
-  model <- list(clinicalData, Y, Xc, Yc, Zc)
+  model <- list("X" = clinicalData, "Y" = Y, "X_coordinate" = Xc, "Y_coordinate" = Yc, "Z_coordinate" = Zc)
   
   return(model)
 }

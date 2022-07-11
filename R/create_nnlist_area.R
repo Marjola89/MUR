@@ -29,7 +29,7 @@ create_nnlist_area <- function(data_dir, organ, dpl){
     z <- deldir(data_mesh, plot = FALSE, dpl = dpl, digits = 2)
     Area <- z$summary$del.area
 
-    NN_Area <- list(NNmatrix, Area)
+    NN_Area <- list("NNmatrix" = NNmatrix, "Area" = Area)
     return(NN_Area)
 }
 # END
