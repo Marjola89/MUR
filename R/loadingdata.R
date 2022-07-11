@@ -2,16 +2,14 @@
 #'
 #' @param fileClinicalDataPath is the path of the file containing the clinical data of the subjects for all the models.
 #' @param folderImagingDataPath is the path of the folders storing the image data e.g. "/home/yourname/folder-path/".
-#' @param indVar is the independent variables of the model e.g. c("individual_id","Age","Sex","Race_c","BMI","WHR").
+#' @param phenoType is the imaging phenotype e.g. "1" for S2S, "2" for Curvature.
 #' @param nPoints is the number of points (vertices) in the mesh, this will change for each organ e.g. for kidney left: 4380.
 #' @param organ is the organ segmentation e.g. liver, spleen, kidney_left etc.
 #' @export
-#' @examples model <- loadingData(fileClinicalDataPath, folderImagingDataPath, indVar, nPoints, organ)
+#' @examples model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ)
 
-loadingdata <- function(fileClinicalDataPath, folderImagingDataPath, indVar, nPoints, organ){
+loadingdata <- function(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ){
 
-  phenoType <- c(1, 2)
-  
   fileNames <- c(paste0("/", organ, "_registration_output/txt/", organ, "_mask_signeddistances.txt"),
                  paste0("/", organ, "_registration_output/txt/", organ, "_mask_curvature.txt")
   )
@@ -68,7 +66,7 @@ loadingdata <- function(fileClinicalDataPath, folderImagingDataPath, indVar, nPo
     }
   }
 
-  model <- list(X, Y, Xc, Yc, Zc)
+  model <- list(clinicalData, Y, Xc, Yc, Zc)
   
   return(model)
 }

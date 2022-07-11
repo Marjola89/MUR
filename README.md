@@ -29,7 +29,7 @@ model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, indVar, nPoint
 Input parameters:
 * `fileClinicalDataPath`: Set the path of the file containing the clinical data of the subjects for all the models e.g. `"/home/yourname/clinicaldata-path/data/ClinicalData.csv"`.
 * `folderImagingDataPath`: Set the path of the folders storing the image data e.g. `"/home/yourname/folder-path/"`.
-* `indVar`: Define the independent variables of the model e.g. `c("individual_id","Age","Sex","Race","BMI","WHR")`.
+* `phenoType`: Define the imaging phenotype e.g. `1` for S2S, `2` for Curvature.
 * `nPoints`: Set the number of points (vertices) in the mesh, this will change for each organ e.g. for kidney left: `4380`.
 * `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
 
@@ -46,7 +46,7 @@ phenoType <- c(1, 2)
 phenoTypeNames <- c("S2S","Curvature")
 
 for(iM in 1:length(phenoType)){
-  model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, indVar, phenoType[iM], nPoints)
+  model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenoType[iM], nPoints, organ)
 
   clinicalData <- model[[1]]
   Y <- model[[2]]
