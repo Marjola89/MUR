@@ -30,7 +30,7 @@ mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordin
     head(inputClinical)
 
     for (iS in scale_range){
-        inputClinical[, iR] <- scale(inputClinical[, iS])
+        inputClinical[, iS] <- scale(inputClinical[, iS])
     }
 
     X <- data.matrix(inputClinical[, -c(1)])

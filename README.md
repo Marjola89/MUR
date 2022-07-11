@@ -79,8 +79,6 @@ Input parameters:
 
 Notes:
 
-* It is essential to save the output as a `.rds` file in the `data_dir` as `<organ>NNmatrix.rds` and  `<organ>area.rds` e.g. `kindey_leftNNmatrix.rds` and `kindey_leftarea.rds`.
-
 * Alternative way to create NN matrices and area is using ```computeNNmatrix``` and ```computeVertAreas``` from the R package [`mutools3D`](https://github.com/UK-Digital-Heart-Project/mutools3D).
 
 ### Mass univariate regression analysis Code
@@ -103,13 +101,13 @@ Input parameters:
 * `phenotype`: Define the imaging phenotype e.g. `1` for S2S, `2` for Curvature.
 * `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
 * `scale_range`: Range of the independent variables to be scaled e.g. `c(1:10)`.
-* `nPermutations`: Number of permutation testing e.g. `1000`.* `data_range`: Range of the independent variables to be included in the model e.g. `c(1:8)`.
+* `nPermutations`: Number of permutation testing e.g. `1000`.
 * `extract_range`: Range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. `c(2, 5:8)`.
 * `output_dir`: Set the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a ```.txt``` file.
 
 Notes:
 
-* It is essential to have saved the mesh coordinates of the organ template as a `.csv` in the `data_dir` as `<organ>_meshCoordinates.csv` e.g. `kindey_left_meshCoordinates.csv`.
+* For more information on how to run the `mass_univariate_analysis` code see the `mutools3D` [documentation](https://github.com/Marjola89/mutools3D/tree/master/inst/doc).
 
 
 Sub-functions for computing the mass univariate regression analysis
