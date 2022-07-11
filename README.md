@@ -67,10 +67,10 @@ for(iM in 1:length(phenoType)){
 ### Code for computing the NN list and the voronoi area
 This is needed for the Mass Univariate Analysis. Usage:
 ```bash 
-NN_Area <- create_nnlist_area(data_dir, organ, dpl) 
+NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl) 
 ```
 Input parameters:
-* `data_dir`: Set the path of the data directory were the input matrices are saved.
+* `mesh_Coordinates`: The matrix from the 3D model mesh of the template.
 * `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
 * `dpl` : A list describing the structure of the dummy points to be added to the data being triangulated. e.g. ```list(ndx = 1.5, ndy = 1.5)```. 
   If the argument is ```NULL``` then no dummy point is added to the data. 
@@ -90,17 +90,20 @@ Computes the associations between the 3D mesh-derived phenotype (e.g. signed dis
 Run the Mass Univariate Analysis with TFCE using the system's cores.
 
 ```bash
-mur_analysis <- mass_univariate_analysis(data_dir, phenotype, organ, scale_range, nPermutations, data_range, extract_range, output_dir)
+mur_analysis <- mass_univariate_analysis(inputClinical, Y, A, NNmatrix, mesh_Coordinates, phenotype, organ, scale_range, nPermutations, extract_range, output_dir)
 ```
 This code is dependent on three functions (`~/function/murq.R`, `~/function/permFL_fast.R` and `~/function/TFCE.R`) which are called within the code.
 
 Input parameters:
-* `data_dir`: Set the path of the data directory were the matrices X and Y for the model are saved.
+* `X` is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical varable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).
+* `Y` is the imaging matrix. Number of rows = N. Number of columns = V.
+* `A` a V-dimensional vector containing the area associated with a vertex, usually its Voronoi area.
+* `NNmatrix` Nx2 matrix containing the mesh edges. Important: to speed up the execution please avoid repetitions like (A,B) and (B,A).
+* `mesh_Coordinates`: The matrix from the 3D model mesh of the template.
 * `phenotype`: Define the imaging phenotype e.g. `1` for S2S, `2` for Curvature.
 * `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
 * `scale_range`: Range of the independent variables to be scaled e.g. `c(1:10)`.
-* `nPermutations`: Number of permutation testing e.g. `1000`.
-* `data_range`: Range of the independent variables to be included in the model e.g. `c(1:8)`.
+* `nPermutations`: Number of permutation testing e.g. `1000`.* `data_range`: Range of the independent variables to be included in the model e.g. `c(1:8)`.
 * `extract_range`: Range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. `c(2, 5:8)`.
 * `output_dir`: Set the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a ```.txt``` file.
 
