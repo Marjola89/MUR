@@ -18,7 +18,7 @@ permFL_fast <- function(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 
   library(doParallel)
   library(parallel)
   library(foreach)
-  #library(mutools3D)
+  library(mutools3D)
   registerDoParallel(detectCores())
   #or detect the number of cores available and use them
   library(igraph)
