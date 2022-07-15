@@ -11,8 +11,6 @@
 
 create_nnlist_area <- function(mesh_Coordinates, organ, dpl){
 
-    library(Rvcg)
-    library(deldir)
     # load the organ mesh coordinates
     data_mesh <- as.matrix(mesh_Coordinates)
     colnames(data_mesh) <- NULL
