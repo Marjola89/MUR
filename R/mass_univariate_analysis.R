@@ -20,10 +20,6 @@
 
 mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordinates, phenotype, organ, scale_range, nPermutations, extract_range, output_dir){
 
-    library(data.table)
-    library(multtest)
-    library(mutools3D)
-
     # CLINICAL DATA MATRIX
     # NCOL = N COVARIATES UNDER STUDY
     # NROW = N PATIENTS

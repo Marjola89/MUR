@@ -16,19 +16,6 @@
 
 permFL_fast <- function(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2){
 
-  library(doParallel)
-  library(parallel)
-  library(foreach)
-  library(mutools3D)
-  registerDoParallel(detectCores())
-  library(igraph)
-  require(multtest)
-  library(Rcpp)
-  library(RcppEigen)
-  library(RcppArmadillo)
-  library(plyr)
-  library(float)
-
   set.seed(1234)
   # set seed for reproducibility
 
