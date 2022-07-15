@@ -6,6 +6,8 @@
 #' e.g. list(ndx = 5, ndy = 5). If the argument is 'NULL' then no dummy point is added to the data.
 #' ndx: The x-dimension of a rectangular grid; if either ndx or ndy is null, no grid is constructed.
 #' ndy: The y-dimension of the aforementioned rectangular grid.
+#' @importFrom Rvcg vcgBallPivoting
+#' @import deldir
 #' @export
 #' @examples NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)
 

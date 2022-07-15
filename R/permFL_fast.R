@@ -11,6 +11,16 @@
 #' @param nPermutations number of permutations in the permutation test, default is 1000.
 #' @param E is the TFCE parameter, by default fixed to 0.5.
 #' @param H is the TFCE parameter, by default fixed to 2.
+#' @import igraph
+#' @import mutools3D
+#' @import parallel
+#' @import doParallel
+#' @import foreach
+#' @import Rcpp
+#' @import RcppEigen
+#' @import RcppArmadillo
+#' @import plyr
+#' @import float
 #' @export
 #' @examples TFCEresults = permFL_fast(X, Y, extract, A, NNmatrix, nPermutations = 1000,  E=0.5, H=2)
 
