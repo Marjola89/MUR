@@ -27,7 +27,7 @@ mass_univariate_analysis(
 
 \item{mesh_Coordinates}{is the matrix from the 3D model mesh of the template.}
 
-\item{phenotype}{is the imaging phenotype e.g. 1 for `S2S`, 2 for `Curvature`.}
+\item{phenotype}{is the imaging phenotype e.g. 1 for \code{S2S}, 2 for \code{Curvature}.}
 
 \item{organ}{is the organ segmentation e.g. liver, spleen, kidney_left etc.}
 
@@ -37,7 +37,7 @@ mass_univariate_analysis(
 
 \item{extract_range}{is the range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. c(2, 5:8).}
 
-\item{output_dir}{is the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a ```.txt``` file.}
+\item{output_dir}{is the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a \code{.txt} file.}
 
 \item{X}{is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical varable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).}
 }
