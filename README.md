@@ -114,7 +114,8 @@ Sub-functions for computing the mass univariate regression analysis
 
 * `murq.R` for the mass univariate regression analysis across the mesh vertices.
   ```bash
-  result <- murq(X, Y, extract)```
+  result <- murq(X, Y, extract)
+  ```
 * `permFL_fast.R` for the permutation the data and applying TFCE.
    ```bash 
    TFCEresults <- permFL_fast(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2)
