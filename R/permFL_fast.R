@@ -22,9 +22,11 @@
 #' @import plyr
 #' @import float
 #' @export
-#' @examples TFCEresults = permFL_fast(X, Y, extract, A, NNmatrix, nPermutations = 1000,  E=0.5, H=2)
+#' @examples TFCEresults = permFL_fast(X, Y, extract, A, NNmatrix, nPermutations = 1000, E=0.5, H=2)
 
 permFL_fast <- function(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2){
+
+  registerDoParallel(detectCores())
 
   set.seed(1234)
   # set seed for reproducibility
