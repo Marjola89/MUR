@@ -27,7 +27,11 @@
 permFL_fast <- function(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2){
 
   registerDoParallel(detectCores())
+<<<<<<< HEAD
 
+=======
+  
+>>>>>>> 582365443a3ba1c27c2b7f749de0f7c76237114f
   set.seed(1234)
   # set seed for reproducibility
 
