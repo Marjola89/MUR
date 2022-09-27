@@ -33,7 +33,7 @@ create_nnlist_area <- function(mesh_Coordinates, dpl){
     Area <- z$summary$del.area[1:nrow(mesh_Coordinates)]
     Area[is.na(Area)] <- 0
 
-    NN_Area <- list("NNmatrix" = as.matrix(NNmatrix), "Area" = Area)
+    NN_Area <- list("NNmatrix" = NNmatrix, "Area" = Area)
     return(NN_Area)
 }
 # END

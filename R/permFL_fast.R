@@ -30,7 +30,9 @@ permFL_fast <- function(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 
 
   set.seed(1234)
   # set seed for reproducibility
-
+  NNmatrix <- as.matrix(NNmatrix)
+  # NNmatrix should be in a matrix form
+  
   Z <- X[, -extract]
   # compute Z (nuisance matrix)
 
