@@ -30,6 +30,6 @@ columns equal to twice the lenght of extract and a number of rows equal to the n
 }
 \examples{
 \dontrun{
-TFCEresults = permFL_fast(X, Y, extract, A, NNmatrix, nPermutations = 1000, E=0.5, H=2)
+TFCEresults = permFL_fast(X, Y, extract, A, as.matrix(NNmatrix), nPermutations = 1000, E=0.5, H=2)
 }
 }
