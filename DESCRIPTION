@@ -4,7 +4,7 @@ Version: 1.0
 Authors@R: 
     person("Marjola", "Thanaj", email = "m.thanaj@westminster.ac.uk", role = c("aut", "cre"))
 Description: Tools for Mass Univariate Analysis of 3D Phenotypes.
-Depends: R (>= 3.3.2), igraph
+Depends: R (>= 3.3.2)
 License: GPL-3 + file LICENSE
 Encoding: UTF-8
 Imports:
@@ -16,8 +16,6 @@ Imports:
     doParallel,
     foreach,
     mutools3D,
-    Rcpp,
-    RcppEigen,
     plyr,
     float,
     stats,

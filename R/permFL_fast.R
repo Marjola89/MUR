@@ -16,8 +16,6 @@
 #' @import parallel
 #' @import doParallel
 #' @import foreach
-#' @import Rcpp
-#' @import RcppEigen
 #' @import plyr
 #' @import float
 #' @export
