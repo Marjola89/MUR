@@ -21,7 +21,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' TFCEresults = permFL_fast(X, Y, extract, A, NNmatrix, nPermutations = 1000, E=0.5, H=2)
+#' TFCEresults = permFL_fast(X, Y, extract, A, as.matrix(NNmatrix), nPermutations = 1000, E=0.5, H=2)
 #' }
 
 permFL_fast <- function(X, Y, extract, A, NNmatrix, nPermutations, E = 0.5, H = 2){
