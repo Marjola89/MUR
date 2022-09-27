@@ -2,17 +2,38 @@
 #'
 #' @param fileClinicalDataPath is the path of the file containing the clinical data of the subjects for all the models.
 #' @param folderImagingDataPath is the path of the folders storing the image data e.g. "/home/yourname/folder-path/".
-#' @param phenoType is the imaging phenotype e.g. "1" for S2S, "2" for Curvature.
+#' @param phenotype is the imaging phenotype e.g. "1" for S2S, "2" for Curvature.
 #' @param nPoints is the number of points (vertices) in the mesh, this will change for each organ e.g. for kidney left: 4380.
 #' @param organ is the organ segmentation e.g. liver, spleen, kidney_left etc.
 #' @importFrom utils read.csv setTxtProgressBar txtProgressBar read.table
 #' @export
 #' @examples
 #' \dontrun{
-#' model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ)
+#'
+#' phenotype <- c(1, 2)
+#' # 1 = S2S, 2 = Curvature
+#'
+#' phenotypeNames <- c("S2S","Curvature")
+#'
+#' for(iM in 1:length(phenotype)){
+#'   model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenotype[iM], nPoints, organ)
+#'
+#'  clinicalData <- model[[1]]
+#'   Y <- model[[2]]
+#'   Xc <- model[[3]]
+#'   Yc <- model[[4]]
+#'   Zc <- model[[5]]
+#'
+#'   saveRDS(X, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_clinicalData.rds", sep = ""))
+#'   saveRDS(Y, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, ".rds", sep = ""))
+#'   saveRDS(Xc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Xcoordinate.rds", sep = ""))
+#'   saveRDS(Yc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Ycoordinate.rds", sep = ""))
+#'   saveRDS(Zc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Zcoordinate.rds", sep = ""))
+#'
+#' }
 #' }
 
-loadingdata <- function(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ){
+loadingdata <- function(fileClinicalDataPath, folderImagingDataPath, phenotype, nPoints, organ){
 
   fileNames <- c(paste0("/", organ, "_registration_output/txt/", organ, "_mask_signeddistances.txt"),
                  paste0("/", organ, "_registration_output/txt/", organ, "_mask_curvature.txt")

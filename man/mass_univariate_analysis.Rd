@@ -12,7 +12,6 @@ mass_univariate_analysis(
   mesh_Coordinates,
   phenotype,
   organ,
-  scale_range,
   nPermutations,
   extract_range,
   output_dir
@@ -29,11 +28,9 @@ mass_univariate_analysis(
 
 \item{mesh_Coordinates}{is the matrix from the 3D model mesh of the template.}
 
-\item{phenotype}{is the imaging phenotype e.g. 1 for \code{S2S}, 2 for \code{Curvature}.}
+\item{phenotype}{is the imaging phenotype e.g. "S2S", "Curvature" etc.}
 
-\item{organ}{is the organ segmentation e.g. liver, spleen, kidney_left etc.}
-
-\item{scale_range}{is the range of the independent variables to be scaled e.g. c(1:10).}
+\item{organ}{is the organ segmentation e.g. "liver", "spleen", "kidney_left" etc.}
 
 \item{nPermutations}{is the number of permutation testing e.g. 1000.}
 
@@ -46,7 +43,7 @@ Mass Univariate Analysis.
 }
 \examples{
 \dontrun{
-mur_analysis <- mass_univariate_analysis(X, Y, A, NNmatrix, mesh_Coordinates,
-                phenotype, organ, scale_range, nPermutations, extract_range, output_dir)
+mur_analysis <- mass_univariate_analysis(X, Y, A, as.matrix(NNmatrix), mesh_Coordinates,
+                phenotype, organ, nPermutations, extract_range, output_dir)
 }
 }

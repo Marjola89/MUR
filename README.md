@@ -46,9 +46,9 @@ model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, indVar, nPoint
 Input parameters:
 * `fileClinicalDataPath`: Set the path of the file containing the clinical data of the subjects for all the models e.g. `"/home/yourname/clinicaldata-path/data/ClinicalData.csv"`.
 * `folderImagingDataPath`: Set the path of the folders storing the image data e.g. `"/home/yourname/folder-path/"`.
-* `phenoType`: Define the imaging phenotype e.g. `1` for S2S, `2` for Curvature.
+* `phenotype`: Define the imaging phenotype e.g. `1` for S2S, `2` for Curvature.
 * `nPoints`: Set the number of points (vertices) in the mesh, this will change for each organ e.g. for kidney left: `4380`.
-* `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
+* `organ`: Set organ segmentation e.g. `"liver"`, `"spleen"`, `"kidney_left"` etc.
 
 Output parameters:
 * `model`: a list including the design matrix `X`, the imaging matrix `Y`, the matrix with x-coordinates `X_coordinate`, the matrix with y-coordinates `Y_coordinate`and the matrix with z-coordinates `Z_coordinate`.
@@ -60,10 +60,10 @@ Notes:
 phenoType <- c(1, 2)
 # 1 = S2S, 2 = Curvature
 
-phenoTypeNames <- c("S2S","Curvature")
+phenotypeNames <- c("S2S","Curvature")
 
-for(iM in 1:length(phenoType)){
-  model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenoType[iM], nPoints, organ)
+for(iM in 1:length(phenotype)){
+  model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenotype[iM], nPoints, organ)
 
   clinicalData <- model[[1]]
   Y <- model[[2]]
@@ -71,11 +71,11 @@ for(iM in 1:length(phenoType)){
   Yc <- model[[4]]
   Zc <- model[[5]]
 
-  saveRDS(X, paste(data_dir, phenoTypeNames[phenoType[iM]], "_", organ, "_clinicalData.rds", sep = ""))
-  saveRDS(Y, paste(data_dir, phenoTypeNames[phenoType[iM]], "_", organ, ".rds", sep = ""))
-  saveRDS(Xc, paste(data_dir, phenoTypeNames[phenoType[iM]], "_", organ, "_Xcoordinate.rds", sep = ""))
-  saveRDS(Yc, paste(data_dir, phenoTypeNames[phenoType[iM]], "_", organ, "_Ycoordinate.rds", sep = ""))
-  saveRDS(Zc, paste(data_dir, phenoTypeNames[phenoType[iM]], "_", organ, "_Zcoordinate.rds", sep = ""))
+  saveRDS(X, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_clinicalData.rds", sep = ""))
+  saveRDS(Y, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, ".rds", sep = ""))
+  saveRDS(Xc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Xcoordinate.rds", sep = ""))
+  saveRDS(Yc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Ycoordinate.rds", sep = ""))
+  saveRDS(Zc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Zcoordinate.rds", sep = ""))
 
 }
 ```
@@ -114,9 +114,8 @@ Input parameters:
 * `A` a V-dimensional vector containing the area associated with a vertex, usually its Voronoi area.
 * `NNmatrix` Nx2 matrix containing the mesh edges. 
 * `mesh_Coordinates`: The matrix from the 3D model mesh of the template.
-* `phenotype`: Define the imaging phenotype e.g. `1` for S2S, `2` for Curvature.
-* `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
-* `scale_range`: Range of the independent variables to be scaled e.g. `c(1:10)`.
+* `phenotype`: Define the imaging phenotype e.g. `"S2S"`, `"Curvature"`.
+* `organ`: Set organ segmentation e.g. `"liver"`, `"spleen"`, `"kidney_left"` etc.
 * `nPermutations`: Number of permutation testing e.g. `1000`.
 * `extract_range`: Range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. `c(2, 5:8)`.
 * `output_dir`: Set the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a ```.txt``` file.
