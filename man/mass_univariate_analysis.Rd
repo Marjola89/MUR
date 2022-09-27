@@ -46,7 +46,7 @@ Mass Univariate Analysis.
 }
 \examples{
 \dontrun{
-mur_analysis <- mass_univariate_analysis(inputClinical, Y, A, NNmatrix, mesh_Coordinates,
+mur_analysis <- mass_univariate_analysis(X, Y, A, NNmatrix, mesh_Coordinates,
                 phenotype, organ, scale_range, nPermutations, extract_range, output_dir)
 }
 }
