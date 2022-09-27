@@ -10,7 +10,9 @@
 #' @import deldir
 #' @export
 #' @examples
-#' \dontrun{NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)}
+#' \dontrun{
+#' NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)
+#' }
 
 create_nnlist_area <- function(mesh_Coordinates, organ, dpl){
 
