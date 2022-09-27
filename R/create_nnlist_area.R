@@ -1,7 +1,6 @@
 #' Compute NN list and voronoi area.
 #'
 #' @param mesh_Coordinates is the matrix from the 3D model mesh of the template.
-#' @param organ is the organ segmentation e.g. liver, spleen, kidney_left etc.
 #' @param dpl is a list describing the structure of the dummy points to be added to the data being triangulated.
 #' e.g. list(ndx = 5, ndy = 5). If the argument is 'NULL' then no dummy point is added to the data.
 #' ndx: The x-dimension of a rectangular grid; if either ndx or ndy is null, no grid is constructed.
@@ -11,10 +10,10 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)
+#' NN_Area <- create_nnlist_area(mesh_Coordinates, dpl)
 #' }
 
-create_nnlist_area <- function(mesh_Coordinates, organ, dpl){
+create_nnlist_area <- function(mesh_Coordinates, dpl){
 
     # load the organ mesh coordinates
     data_mesh <- as.matrix(mesh_Coordinates)

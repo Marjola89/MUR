@@ -4,12 +4,10 @@
 \alias{create_nnlist_area}
 \title{Compute NN list and voronoi area.}
 \usage{
-create_nnlist_area(mesh_Coordinates, organ, dpl)
+create_nnlist_area(mesh_Coordinates, dpl)
 }
 \arguments{
 \item{mesh_Coordinates}{is the matrix from the 3D model mesh of the template.}
-
-\item{organ}{is the organ segmentation e.g. liver, spleen, kidney_left etc.}
 
 \item{dpl}{is a list describing the structure of the dummy points to be added to the data being triangulated.
 e.g. list(ndx = 5, ndy = 5). If the argument is 'NULL' then no dummy point is added to the data.
@@ -21,6 +19,6 @@ Compute NN list and voronoi area.
 }
 \examples{
 \dontrun{
-NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)
+NN_Area <- create_nnlist_area(mesh_Coordinates, dpl)
 }
 }

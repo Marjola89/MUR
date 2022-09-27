@@ -84,11 +84,10 @@ for(iM in 1:length(phenoType)){
 ### Code for computing the NN list and the voronoi area
 This is needed for the Mass Univariate Analysis. Usage:
 ```bash 
-NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl) 
+NN_Area <- create_nnlist_area(mesh_Coordinates, dpl) 
 ```
 Input parameters:
 * `mesh_Coordinates`: The matrix from the 3D model mesh of the template.
-* `organ`: Set organ segmentation e.g. `liver`, `spleen`, `kidney_left` etc.
 * `dpl` : A list describing the structure of the dummy points to be added to the data being triangulated. e.g. ```list(ndx = 1.5, ndy = 1.5)```. 
   If the argument is ```NULL``` then no dummy point is added to the data. 
   ndx: The x-dimension of a rectangular grid; if either ndx or ndy is null, no grid is constructed. 

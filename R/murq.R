@@ -56,7 +56,7 @@ murq <- function(X, Y, extract){
     }
     
   }
-  colnames(tMUR) <- c("beta", "t_statistics", "pvalues")
+  colnames(tMUR) <- c("betas", "t_statistics", "pvalues")
 
   return(tMUR)
   
