@@ -18,7 +18,7 @@
 #' for(iM in 1:length(phenotype)){
 #'   model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenotype[iM], nPoints, organ)
 #'
-#'  clinicalData <- model[[1]]
+#'   X <- model[[1]]
 #'   Y <- model[[2]]
 #'   Xc <- model[[3]]
 #'   Yc <- model[[4]]
@@ -29,7 +29,6 @@
 #'   saveRDS(Xc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Xcoordinate.rds", sep = ""))
 #'   saveRDS(Yc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Ycoordinate.rds", sep = ""))
 #'   saveRDS(Zc, paste(data_dir, phenotypeNames[phenotype[iM]], "_", organ, "_Zcoordinate.rds", sep = ""))
-#'
 #' }
 #' }
 

@@ -65,7 +65,7 @@ phenotypeNames <- c("S2S","Curvature")
 for(iM in 1:length(phenotype)){
   model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenotype[iM], nPoints, organ)
 
-  clinicalData <- model[[1]]
+  X <- model[[1]]
   Y <- model[[2]]
   Xc <- model[[3]]
   Yc <- model[[4]]
