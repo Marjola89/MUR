@@ -17,17 +17,22 @@
 #' @param output_dir is the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a ```.txt``` file.
 #' @import multtest
 #' @import mutools3D
+#' @importFrom utils head write.table
 #' @export
-#' @examples mur_analysis <- mass_univariate_analysis(inputClinical, Y, A, NNmatrix, mesh_Coordinates, phenotype, organ, scale_range, nPermutations, extract_range, output_dir)
+#' @examples
+#' \dontrun{
+#' mur_analysis <- mass_univariate_analysis(inputClinical, Y, A, NNmatrix, mesh_Coordinates,
+#'                 phenotype, organ, scale_range, nPermutations, extract_range, output_dir)
+#' }
 
-mass_univariate_analysis <- function(inputClinical, Y, A, NNmatrix, mesh_Coordinates, phenotype, organ, scale_range, nPermutations, extract_range, output_dir){
+mass_univariate_analysis <- function(X, Y, A, NNmatrix, mesh_Coordinates, phenotype, organ, scale_range, nPermutations, extract_range, output_dir){
 
     # CLINICAL DATA MATRIX
     # NCOL = N COVARIATES UNDER STUDY
     # NROW = N PATIENTS
-    head(inputClinical)
+    head(X)
 
-    X <- data.matrix(inputClinical[, -c(1)])
+    X <- data.matrix(X[, -c(1)])
 
     X <- cbind(1, X)
     print(dim(X))

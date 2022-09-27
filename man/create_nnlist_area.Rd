@@ -20,5 +20,5 @@ ndy: The y-dimension of the aforementioned rectangular grid.}
 Compute NN list and voronoi area.
 }
 \examples{
-NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)
+\dontrun{NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)}
 }

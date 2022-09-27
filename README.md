@@ -17,6 +17,23 @@ Then, to install the package just use `install_github`function.
 ```r
 install_github("Marjola89/MUR")
 ```
+### Install Dependencies
+
+The following packages are not available on CRAN so they may need to be installed seperately.
+
+* [```multtest```](https://www.bioconductor.org/packages/release/bioc/html/multtest.html)
+   ```bash
+   if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+
+   BiocManager::install("multtest")
+   ```
+* [```mutools3D```](https://github.com/UK-Digital-Heart-Project/mutools3D)
+  ```bash 
+  install.packages("devtools")
+  library(devtools)
+  install_github("UK-Digital-Heart-Project/mutools3D", build_vignettes = TRUE)
+  ```
 
 ## Code
 ### Produce Matrices
@@ -107,7 +124,7 @@ Input parameters:
 
 Notes:
 
-* For more information on how to run the `mass_univariate_analysis` code see the `mutools3D` [documentation](https://github.com/Marjola89/mutools3D/tree/master/inst/doc).
+* For more information on how to run the `mass_univariate_analysis` code see the `mutools3D` [documentation](https://github.com/UK-Digital-Heart-Project/mutools3D/tree/master/inst/doc).
 
 
 Sub-functions for computing the mass univariate regression analysis

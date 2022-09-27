@@ -2,12 +2,10 @@ Package: MUR
 Title: Mass Univariate Regression Analysis
 Version: 1.0
 Authors@R: 
-    person("Marjola", "Thanaj", , "m.thanaj@westminster.ac.uk", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+    person("Marjola", "Thanaj", email = "m.thanaj@westminster.ac.uk", role = c("aut", "cre"))
 Description: Tools for Mass Univariate Analysis of 3D Phenotypes.
-License: GPL-3
+License: GPL-3 + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports:
     Rvcg,
     deldir,
@@ -19,8 +17,9 @@ Imports:
     mutools3D,
     Rcpp,
     RcppEigen,
-    RcppArmadillo,
     plyr,
-    float
+    float,
+    stats,
+    utils
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0

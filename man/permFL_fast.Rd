@@ -29,5 +29,5 @@ and the numbers of the column variables to extract, this function computes for e
 columns equal to twice the lenght of extract and a number of rows equal to the number of vertices.
 }
 \examples{
-TFCEresults = permFL_fast(X, Y, extract, A, NNmatrix, nPermutations = 1000, E=0.5, H=2)
+\dontrun{TFCEresults = permFL_fast(X, Y, extract, A, NNmatrix, nPermutations = 1000, E=0.5, H=2)}
 }

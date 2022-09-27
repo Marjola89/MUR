@@ -5,8 +5,12 @@
 #' @param phenoType is the imaging phenotype e.g. "1" for S2S, "2" for Curvature.
 #' @param nPoints is the number of points (vertices) in the mesh, this will change for each organ e.g. for kidney left: 4380.
 #' @param organ is the organ segmentation e.g. liver, spleen, kidney_left etc.
+#' @importFrom utils read.csv setTxtProgressBar txtProgressBar read.table
 #' @export
-#' @examples model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ)
+#' @examples
+#' \dontrun{
+#' model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ)
+#' }
 
 loadingdata <- function(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ){
 

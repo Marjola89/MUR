@@ -9,13 +9,14 @@
 #' @import Rvcg
 #' @import deldir
 #' @export
-#' @examples NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)
+#' @examples
+#' \dontrun{NN_Area <- create_nnlist_area(mesh_Coordinates, organ, dpl)}
 
 create_nnlist_area <- function(mesh_Coordinates, organ, dpl){
 
     # load the organ mesh coordinates
     data_mesh <- as.matrix(mesh_Coordinates)
-    colnames(data_mesh) <- NULL
+    colnames(mesh_Coordinates) <- NULL
     NN_data_mesh <- apply(data_mesh, 2, as.numeric)
 
     # surface reconstruction providing a triangular data if class mesh3D

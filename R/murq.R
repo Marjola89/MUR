@@ -7,13 +7,16 @@
 #' @param Y is the imaging matrix. Number of rows = N. Number of columns = V.
 #' @param extract is an array expressing which covariates in X you want to extract.
 #' @keywords mur regression
+#' @importFrom stats pt
 #' @export
 #' @examples
-#' extract <- c(1, 3) #extract the first and third covariate.
+#' \dontrun{
+# 'extract <- c(1, 3) #extract the first and third covariate.
 #' result <- murq(X, Y, extract)
 #' betas <- result[, 1]
 #' tstatistics <- result[, 2]
 #' pvalues <- result[, 3]
+#' }
 
 murq <- function(X, Y, extract){
   

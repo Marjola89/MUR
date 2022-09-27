@@ -5,7 +5,7 @@
 \title{Mass Univariate Analysis.}
 \usage{
 mass_univariate_analysis(
-  inputClinical,
+  X,
   Y,
   A,
   NNmatrix,
@@ -19,6 +19,8 @@ mass_univariate_analysis(
 )
 }
 \arguments{
+\item{X}{is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical varable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).}
+
 \item{Y}{is the imaging matrix. Number of rows = N. Number of columns = V.}
 
 \item{A}{A V-dimensional vector containing the area associated with a vertex, usually its Voronoi area.}
@@ -38,12 +40,13 @@ mass_univariate_analysis(
 \item{extract_range}{is the range of the independent variables to extract the beta coefficients and p-values after MUR analysis e.g. c(2, 5:8).}
 
 \item{output_dir}{is the path of the output directory were the output with the coefficients and p-values for each covariate are saved as a \code{.txt} file.}
-
-\item{X}{is the design matrix. Number of rows = number of subjects in the study, number of columns = number of vertices in the atlas. Numerical varable must be normalized to 0-mean and unit-standard deviation. Categorical variables must be coded using dummy coding. The first column should contain the intercept (all 1s).}
 }
 \description{
 Mass Univariate Analysis.
 }
 \examples{
-mur_analysis <- mass_univariate_analysis(inputClinical, Y, A, NNmatrix, mesh_Coordinates, phenotype, organ, scale_range, nPermutations, extract_range, output_dir)
+\dontrun{
+mur_analysis <- mass_univariate_analysis(inputClinical, Y, A, NNmatrix, mesh_Coordinates,
+                phenotype, organ, scale_range, nPermutations, extract_range, output_dir)
+}
 }

@@ -27,5 +27,7 @@ loadingdata(
 Load and prepare data for analysis.
 }
 \examples{
+\dontrun{
 model <- loadingdata(fileClinicalDataPath, folderImagingDataPath, phenoType, nPoints, organ)
+}
 }

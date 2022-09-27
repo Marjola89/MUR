@@ -19,11 +19,12 @@ a NxV imaging matrix Y containing the values of a 3D phenotype at each atlas ver
 variables in X of which extract the information of interest. The output is a Vx(3xlength(extract)) matrix containing the regression coefficient, its related t-statistic and the p-value at each vertex of the computational model for each variable specifiec in extract.
 }
 \examples{
-extract <- c(1, 3) #extract the first and third covariate.
+\dontrun{
 result <- murq(X, Y, extract)
 betas <- result[, 1]
 tstatistics <- result[, 2]
 pvalues <- result[, 3]
+}
 }
 \keyword{mur}
 \keyword{regression}
